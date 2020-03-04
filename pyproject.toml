@@ -1,0 +1,39 @@
+[tool.black]
+line-length=79
+target-version=["py38"]
+
+[tool.coverage.run]
+branch = true
+source = ["docker_cp"]
+
+[tool.coverage.paths]
+source = ["docker_cp/"]
+
+[tool.coverage.report]
+fail_under = 85
+skip_covered = true
+show_missing = true
+
+[tool.poetry]
+name = "docker-cp"
+version = "0.1.0"
+description = ""
+authors = ["zhukovgreen <iam@zhukovgreen.pro>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+docker = "^4.2.0"
+click = "^7.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.3.5"
+pytest-cov = "^2.8.1"
+coverage = {extras = ["toml"], version = "^5.0.3"}
+
+[tool.poetry.scripts]
+docker-cp = "docker_cp.console:main"
+
+[build-system]
+requires = ["poetry>=1.0.3"]
+build-backend = "poetry.masonry.api"
+
